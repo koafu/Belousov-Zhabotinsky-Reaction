@@ -30,10 +30,11 @@ class Cell:
 
     def check_neighbors(self, grid, q, g, k1, k2):
         self.info = {}
+        neighbors = self.get_neighbors(grid)
 
         a = 0
         b = 0
-        for cell in self.get_neighbors(grid):
+        for cell in neighbors:
             if cell.state >= 2 and cell.state < q:
                 a += 1
             if cell.state == q:
@@ -42,7 +43,7 @@ class Cell:
 
         c = 0
         S = self.state
-        for cell in self.get_neighbors(grid):
+        for cell in neighbors:
             S += cell.state
             if cell.state == 1:
                 c += 1

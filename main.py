@@ -7,8 +7,8 @@ class Reaction:
 
     def __init__(self):
         pygame.init()
-        self.width = 400
-        self.height = 400
+        self.width = 200
+        self.height = 200
         self.screen = pygame.display.set_mode((self.width, self.height))
         pygame.display.set_caption("Belousov Reaction")
         self.clock = pygame.time.Clock()
@@ -63,7 +63,7 @@ class Reaction:
     def run(self):
 
         pxarray = pygame.PixelArray(self.screen)
-
+        print("q: {}, k1: {}, k2: {}, g: {}".format(self.q, self.k1, self.k2, self.g))
         while not self.exit:
 
             for event in pygame.event.get():
@@ -74,7 +74,6 @@ class Reaction:
 
             self.next_generation()
             self.update_window(pxarray)
-            print(self.grid[4][4].state)
 
             pygame.display.flip()
             self.clock.tick(self.ticks)
